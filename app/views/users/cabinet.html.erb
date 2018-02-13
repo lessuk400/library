@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row justify-content-between mt-5 border no-gutters ">
+    <div class="col-sm-4">
+      <div class="row align-items-center h-100 flex-nowrap">
+        <div class="col-sm-8 h-auto name-color">
+          <p class="text-left text-center mb-0 h-100 d-block">
+            <%= current_user.name %>
+          </p>
+      </div>
+      <div class="col-sm-3 no_padding">
+        <p class="text-center mb-0 font-custom">
+        Total books added: <%= @user.books.size %>
+      </p>
+    </div>
+    </div>
+  </div>
+    <div class="col-sm-5 p-3">
+      <a href="" type="button" class="btn btn-primary">
+        In my collection <span class="badge badge-light"><%= @user.books.length %></span>
+      </a>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-12">
+      <h5 id="prog">Book in my collection</h5>
+      <div class="row h-100 padding_l_r mt-4 justify-content-center align-items-center">
+        <div class="col custom-h">
+          <% @user.books.each do |b| %>
+          <div class="d-inline-block border custom-box">
+            <!-- Зробити перехід на вьюхі самих книжок -->
+          <a href=<%= book_path(b) %> class="d-block h-100">
+            <img class="w-100" src=<%= b.image %> >
+            <p class="text-center">
+              <small><%= b.title %></small>
+            </p>
+          </a>
+        </div>
+        <% end %>
+
+          </div>
+        </div>
+    </div>
+  </div>
+
+</div>

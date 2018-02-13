@@ -1,0 +1,76 @@
+.padding_16_8{
+  padding: 8px 16px;
+}
+
+.email {
+
+}
+
+.right_bar_preview {
+  margin: 10px 0px 10px 0px;
+}
+#left_bar_title {
+  font-size: 0.8rem
+}
+.right_bar {
+  max-height: 40rem;
+  height: auto;
+  overflow-x: hidden;
+}
+.cust_color {
+  color: #212529;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.author {
+  margin-top: -.3rem;
+  font-size: 0.9rem;
+  color:rgb(149, 145, 145);
+}
+.thumbnail_info {
+  font-size: .8rem;
+  max-height: 13rem;
+  height: auto;
+  overflow-x: hidden;
+}
+.h-90 {
+  height: 85%;
+}
+.custom-text {
+  color: rgb(106, 97, 98);
+  margin-left: 10.25rem;
+}
+
+.font-custom
+{
+  font-size: 0.9rem
+}
+.padding_l_r {
+  padding: 0 15px 0 15px;
+
+}
+.custom-box {
+  max-width: 10rem;
+  max-height: 20rem;
+  margin-left: 1rem
+}
+.custom-h {
+  width:100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  background: rgb(240, 240, 240);
+  padding-top: 1rem
+}
+
+.custom-h p {
+  white-space: normal;
+}
+.no_padding {
+  padding: 0;
+}
+.light_row:hover {
+  background-color: #f0e9e9;
+}

@@ -1,0 +1,34 @@
+<div class="text-center mt-5">
+<h1>Signup!</h1>
+<%= form_for :user, url: '/users' do |f| %>
+<div class="row justify-content-center">
+  <div class="col-8">
+    <h1 class="h3 mb-3 font-weight-normal">Please register account</h1>
+  </div>
+</div>
+<div class="row justify-content-center mt-2">
+  <div class="col-8">
+    <%= f.text_field :name, placeholder: 'Your name' %>
+  </div>
+</div>
+<div class="row justify-content-center mt-2">
+  <div class="col-8">
+    <%= f.text_field :email, placeholder: 'Email address' %>
+  </div>
+</div>
+<div class="row justify-content-center mt-2">
+  <div class="col-8">
+    <%= f.password_field :password, placeholder: 'Your password' %>
+  </div>
+</div>
+<div class="row justify-content-center mt-2">
+  <div class="col-8">
+    <%= f.password_field :password_confirmation, placeholder: 'Confirm password' %>
+  </div>
+</div>
+<div class="row justify-content-center mt-4 ">
+  <div class="col-8">
+    <%= f.submit "Submit" %>
+  </div>
+</div>
+<% end %>

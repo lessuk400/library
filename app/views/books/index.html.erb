@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+      <div class="jumbotron pb-3 pt-3">
+        <h1 class="display-4">Welcome to our library</h1>
+        <p class="lead">This site let you find something interesting to read. You can create your own profile to save your favourite books and books you would like to read.</p>
+        <% if !current_user %>
+        <p class="text-center text-muted"><em>If you are ready than login and lets start!</em></p>
+        <div class="mx-auto w-50">
+          <a class="btn btn-primary btn-lg d-block" href=<%= '/login' %> role="button">Login</a>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h4>Books in our collection</h6>
+    </div>
+  </div>
+    <div class="row mt-2">
+      <div class="col-9 p-2">
+        <% @books.each do |book| %>
+        <a href=<%= book_path(book) %> class="row cust_color light_row">
+          <div class="col-3">
+              <img class="w-50"src=<%= book.image %> >
+          </div>
+            <div class="col-9 p-2 no_decor">
+              <h5 class="cust_color"><%= book.title %></h5>
+              <p class="text-left author">by <%= book.author %></p>
+              <p class="no_decor cust_color">
+                <%= '%-.350s' % book.description %>...
+              </p>
+           </div>
+        </a>
+        <% end %>
+  </div>
+  <div class="col-sm-3 right_bar">
+    <div class="row justify-content-center">
+      <h5 class="text-center">Random books</h5>
+      <% @random.each do |book| %>
+      <div class="col-sm-10 right_bar_preview ">
+        <div class="card w-75 mx-auto">
+          <a href=<%= book_path(book) %>>
+          <img class="card-img-top w-70%" src=<%= book.image %> alt="Card image cap">
+          <div class="card-body p-2">
+            <p id="left_bar_title" class="text-center"><em><%= book.title %></em></h6>
+          </div>
+        </a>
+        </div>
+      </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+
+<br>
+<% if current_user %>
+<% if current_user.email == "admin@admin.com" %>
+<%= link_to 'New Book', new_book_path %>
+<% end %>
+<% end %>

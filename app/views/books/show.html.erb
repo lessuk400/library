@@ -1,0 +1,72 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-sm-9">
+      <div class="row">
+        <div class="col-sm-4">
+          <img src=<%= @book.image %> class="img-thumbnail">
+          <div class="text-center mt-2">
+            <% if current_user %>
+              <% if current_user.books.include? @book %>
+                <a class="btn btn-primary" href=<%= "/remove_book/#{@book.id}" %> role="button">Remove from my collection</a>
+              <% else %>
+                <a class="btn btn-primary" href=<%= "/add/#{@book.id}" %> role="button">Add to my collection</a>
+              <% end %>
+              <% end %>
+            </div>
+            <table class="table mt-2">
+              <tbody>
+                <tr>
+                  <td>Genre:</td>
+                  <td><%=@book.genre %></td>
+                </tr>
+                <tr>
+                  <td>Author:</td>
+                  <td><%=@book.author %></td>
+                </tr>
+                <tr>
+                  <td>Length:</td>
+                  <td><%= @book.length %></td>
+                </tr>
+                <tr>
+                  <td>People added this book:</td>
+                  <td><%= @book.users.length %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        <div class="col-sm-8">
+          <h3><%= @book.title%></h3>
+          <p class="text-left author">by <%= @book.author%></p>
+          <p>
+            <%= @book.description%>
+          </p>
+        </div>
+      </div>
+
+  </div>
+    <div class="col-sm-3 right_bar">
+      <div class="row justify-content-center">
+        <h5 class="text-center">Random books</h5>
+        <% @random.each do |book| %>
+        <div class="col-sm-10 right_bar_preview ">
+          <div class="card w-75 mx-auto">
+            <a href=<%= book_path(book) %>>
+            <img class="card-img-top w-70%" src=<%= book.image %> alt="Card image cap">
+            <div class="card-body p-2">
+              <p id="left_bar_title" class="text-center"><em><%= book.title %></em></h6>
+            </div>
+          </a>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<% if current_user %>
+<% if current_user.email == "admin@admin.com" %>
+<%= link_to 'Edit', edit_book_path(@book) %>
+<% end %>
+<% end %>

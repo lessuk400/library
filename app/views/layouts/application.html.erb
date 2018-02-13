@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header class="container">
+      <div class="row">
+        <div class="col-6">
+          <div class="nav justify-content-start">
+            <li class="nav-item">
+              <a href=<%= books_path %> type="button" class="btn btn-primary">
+                Main
+              </a>
+
+            </li>
+            <% if current_user %>
+            <li class="nav-item ml-2">
+              <a href=<%= 'cabinet' %> type="button" class="btn btn-primary">
+                <%= current_user.name %>`s collection <span class="badge badge-light"><%= current_user.books.length %></span>
+              </a>
+            </li>
+            <li class="nav-item ml-2">
+              <a href=<%= '/logout' %> type="button" class="btn btn-outline-secondary">Logout </a>
+            </li>
+            <% else %>
+            <li class="nav-item ml-2">
+              <a href=<%= '/login' %> type="button" class="btn btn-outline-secondary">Login </a>
+            </li>
+            <% end %>
+
+          </div>
+        </div>
+        <div class="col-6">       
+          <%= form_tag(books_path, method: :get) do %>
+            <%= text_field_tag :term, params[:term]%>
+            <%= submit_tag 'Search', name: nil%>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+    </header>
+
+    <%= yield %>
+  </body>
+</html>
