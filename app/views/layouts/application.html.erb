@@ -24,8 +24,8 @@
             </li>
             <% if current_user %>
             <li class="nav-item ml-2">
-              <a href=<%= 'cabinet' %> type="button" class="btn btn-primary">
-                <%= current_user.name %>`s collection <span class="badge badge-light"><%= current_user.books.length %></span>
+              <a href=<%= '/cabinet' %> type="button" class="btn btn-primary">
+                <%= current_user.name.capitalize %>`s collection <span class="badge badge-light"><%= current_user.books.length %></span>
               </a>
             </li>
             <li class="nav-item ml-2">
@@ -39,7 +39,7 @@
 
           </div>
         </div>
-        <div class="col-6">       
+        <div class="col-6">
           <%= form_tag(books_path, method: :get) do %>
             <%= text_field_tag :term, params[:term]%>
             <%= submit_tag 'Search', name: nil%>
